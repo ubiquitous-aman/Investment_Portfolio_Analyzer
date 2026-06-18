@@ -305,4 +305,16 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
-    main()
+    import signal
+    import sys
+    
+    # Catch Ctrl+C and exit silently to prevent cffi/tkinter stack traces
+    def signal_handler(sig, frame):
+        sys.exit(0)
+    
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit(0)

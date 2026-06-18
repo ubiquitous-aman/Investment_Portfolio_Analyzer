@@ -24,12 +24,16 @@ def get_live_quote(symbol):
         stock = yf.Ticker(symbol)
         # Use history instead of fast_info to avoid 'exchangeTimezoneName' and other API errors
         hist = stock.history(period="5d")
-        if hist.empty:
+        if hist.empty or "Close" not in hist.columns:
+            return None
+            
+        close_prices = hist["Close"].dropna()
+        if close_prices.empty:
             return None
         
-        current_price = float(hist["Close"].iloc[-1])
-        if len(hist) >= 2:
-            prev_close = float(hist["Close"].iloc[-2])
+        current_price = float(close_prices.iloc[-1])
+        if len(close_prices) >= 2:
+            prev_close = float(close_prices.iloc[-2])
         else:
             prev_close = current_price
             
