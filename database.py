@@ -25,6 +25,10 @@ def initialize_database():
 
 
 def add_holding(ticker, quantity, buy_price):
+    ticker = ticker.strip().upper()
+    if quantity <= 0 or buy_price <= 0:
+        raise ValueError("Quantity and buy price must be greater than zero.")
+
     conn = get_connection()
     cursor = conn.cursor()
 

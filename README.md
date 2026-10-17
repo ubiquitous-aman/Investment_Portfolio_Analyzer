@@ -4,15 +4,22 @@ A lightweight, standalone desktop application built with Python and Tkinter to t
 
 ## Features
 
-- **Live Market Data:** Integrates with Yahoo Finance API (`yfinance`) to fetch real-time stock prices and daily changes.
-- **Ticker Search:** Built-in ticker search functionality prevents errors by suggesting correct ticker symbols when adding holdings.
+- **Instant Live Market Data:** Integrates fast parallel Yahoo Finance quote fetching with background threading for instant, zero-freeze updates.
+- **Ticker Autocomplete:** Built-in live ticker search suggests correct symbols with debounced typing.
 - **Interactive Dashboard:** View your entire portfolio at a glance, including total investment, current value, profit/loss (P/L), and return on investment (ROI).
-- **Real-time Visualizations:**
-  - **Portfolio Allocation Chart:** Dynamically updates to show the weight of each asset in your portfolio.
-  - **Sector Analysis Chart:** Automatically fetches industry data for each stock to visualize your portfolio's sector diversification.
-- **Market Watch:** A quick popup tool to check live prices for major predefined stock symbols.
-- **Comprehensive Analytics:** Detailed reports including best/worst performers, diversification warnings, and an aggregated 3-month historical growth line chart.
-- **Local Storage:** All data is securely stored locally on your machine using an SQLite database (`portfolio.db`).
+- **Embedded Real-time Visualizations:**
+  - **Portfolio Allocation Chart:** Dynamically updates to show the weight of each asset.
+  - **Sector Diversification Chart:** Categorizes stocks by industry/sector for clear diversification insights.
+- **Stock Explorer & Fundamentals:** Look up any stock (e.g., `AAPL`, `NVDA`, `RELIANCE.NS`) to view live pricing, day change %, market cap, sector, and an interactive 1-year performance chart with volume.
+- **Market Watch:** Instant popup widget tracking live benchmark and blue-chip stocks.
+- **Comprehensive Risk & Performance Analytics:**
+  - Annualized Volatility and Maximum Drawdown per holding.
+  - 3-Month Historical Growth curve.
+  - Risk Comparison Bar Chart.
+  - 6-Month Asset Correlation Heatmap.
+  - Best and worst performing assets.
+- **CSV Import & Export:** One-click backup and restore of your portfolio data.
+- **Local Storage:** Secure, local SQLite database (`portfolio.db`) with automatic validation.
 
 ## Prerequisites
 
